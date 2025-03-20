@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import Contact from "./components/Contact/Contact";
 import { FaArrowUp } from "react-icons/fa";
 import "react-toastify/dist/ReactToastify.css";
+import Subscribe from "./components/Subscribe/Subscribe";
 
 function App() {
   const [showButton, setShowButton] = useState(false);
@@ -38,6 +39,7 @@ function App() {
       <Video />
       <Download />
       <Contact />
+      <Subscribe />
       <Footer />
       {showButton && (
         <button

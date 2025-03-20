@@ -39,7 +39,7 @@ const Navbar = () => {
           ) : (
             <img
               src={ImageAssets.logo}
-              className="h-10"
+              className="h-10 md:h-15 md:w-24"
               alt="Logo"
               loading="lazy"
             />
@@ -85,7 +85,7 @@ const Navbar = () => {
             <li>
               <button
                 onClick={() => handleNavClick("home")}
-                className="hover:text-yellow-400 transition duration-300 cursor-pointer"
+                className="hover:text-yellow-400 md:text-2xl transition duration-300 cursor-pointer"
               >
                 {t("home")}
               </button>
@@ -93,7 +93,7 @@ const Navbar = () => {
             <li>
               <button
                 onClick={() => handleNavClick("video")}
-                className="hover:text-yellow-400 transition duration-300 cursor-pointer"
+                className="hover:text-yellow-400 md:text-2xl transition duration-300 cursor-pointer"
               >
                 {t("services")}
               </button>
@@ -101,14 +101,14 @@ const Navbar = () => {
             <li>
               <button
                 onClick={() => handleNavClick("contact")}
-                className="hover:text-yellow-400 transition duration-300 cursor-pointer"
+                className="hover:text-yellow-400 md:text-2xl transition duration-300 cursor-pointer"
               >
                 {t("contact")}
               </button>
             </li>
             <li>
               <BsTranslate
-                className="cursor-pointer text-xl mt-1.5 hover:text-yellow-400 transition duration-300"
+                className="cursor-pointer md:text-2xl mt-1.5 hover:text-yellow-400 transition duration-300"
                 onClick={handleLanguageChange}
               />
             </li>

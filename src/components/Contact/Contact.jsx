@@ -18,6 +18,7 @@ const Contact = () => {
 
   const form = useRef();
   const contactFormSchema = createContactFormSchema(t);
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -29,6 +30,7 @@ const Contact = () => {
   });
 
   const onSubmit = (data) => {
+    setIsLoading(true);
     emailjs
       .sendForm(
         import.meta.env.VITE_SERVICE_ID,
@@ -46,7 +48,8 @@ const Contact = () => {
         (error) => {
           toast.error(t("form_submission_failed"));
         }
-      );
+      )
+      .finally(() => setIsLoading(false));
   };
 
   useEffect(() => {
@@ -66,7 +69,7 @@ const Contact = () => {
       className="bg-gray-100 py-16 px-4 flex flex-col items-center text-center"
       id="contact"
     >
-      <h2 className="text-4xl font-bold text-gray-900 mb-10 md:mb-16">
+      <h2 className="text-3xl md:text-4xl font-normal text-green-900 mb-10 md:mb-16">
         {t("contact_us")}
       </h2>
 
@@ -122,20 +125,23 @@ const Contact = () => {
                       } border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
                     />
                     <FaUser
-                      className={`absolute top-1/2 transform -translate-y-1/2 ${
+                      className={`absolute  ${
+                        errors.name ? "top-3/14" : "top-3/10"
+                      } ${
                         isRtl ? "right-4" : "left-4"
-                      } text-gray-500`}
+                      } text-gray-500 pointer-events-none`}
                     />
                     {errors.name && (
                       <p
-                        className={`text-red-500 absolute ${
-                          isRtl ? "right-1" : "left-1"
-                        } text-sm mt-1`}
+                        className={`text-red-500 text-sm mt-1 ${
+                          isRtl ? "right-0" : "left-0"
+                        } w-full`}
                       >
                         {errors.name.message}
                       </p>
                     )}
                   </div>
+
                   <div className="relative">
                     <input
                       type="email"
@@ -146,20 +152,23 @@ const Contact = () => {
                       } border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500`}
                     />
                     <FaEnvelope
-                      className={`absolute top-1/2 transform -translate-y-1/2 ${
+                      className={`absolute ${
+                        errors.email ? "top-3/10" : "top-3/7"
+                      } ${
                         isRtl ? "right-4" : "left-4"
-                      } text-gray-500`}
+                      } text-gray-500 pointer-events-none`}
                     />
                     {errors.email && (
                       <p
-                        className={`text-red-500 absolute ${
-                          isRtl ? "right-1" : "left-1"
-                        } text-sm mt-1`}
+                        className={`text-red-500 text-sm mt-1 ${
+                          isRtl ? "right-0" : "left-0"
+                        } w-full`}
                       >
                         {errors.email.message}
                       </p>
                     )}
                   </div>
+
                   <div className="relative">
                     <textarea
                       placeholder={t("message_placeholder")}
@@ -168,16 +177,18 @@ const Contact = () => {
                       className="w-full mt-2 px-4 py-3 border resize-none bg-neutral-200 rounded-3xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                     />
                     {errors.message && (
-                      <span className="text-red-500 text-sm mt-1">
+                      <span className="text-red-500 text-sm mt-1 w-full">
                         {errors.message.message}
                       </span>
                     )}
                   </div>
+
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 cursor-pointer bg-yellow-500 text-white rounded-3xl hover:bg-yellow-600 transition duration-300 ease-in-out"
+                    className="w-full px-6 py-3 cursor-pointer bg-yellow-500 text-white rounded-3xl hover:bg-yellow-600 transition duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={isLoading}
                   >
-                    {t("send_message")}
+                    {isLoading ? t("send_message_loading") : t("send_message")}
                   </button>
                 </form>
               </div>
@@ -195,10 +206,10 @@ const Contact = () => {
           {activeTab === 2 && (
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 opacity-100">
               <div className="w-full space-y-4">
-                <p className="text-lg text-gray-600">
+                <p className="text-xl md:text-3xl text-gray-600">
                   {t("developer_section")}
                   <a
-                    href={ResourceLinks.github}
+                    href={ResourceLinks.githubDeveloper}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 hover:text-gray-600"

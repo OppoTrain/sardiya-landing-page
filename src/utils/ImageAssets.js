@@ -6,6 +6,9 @@ import contactImage from '@/assets/contact_img.png';
 import cardOneImage from '@/assets/card1_img.jpeg';
 import cardTwoImage from '@/assets/card2_img.jpeg';
 import cardThreeImage from '@/assets/card3_img.jpeg';
+import GoogleChromeLogo from '@/assets/google_chrome_logo.png';
+import FirefoxLogo from '@/assets/firefox_logo.png';
+import SafariLogo from '@/assets/safari_logo.png';
 
 const ImageAssets = {
   logo,
@@ -15,7 +18,10 @@ const ImageAssets = {
   contactImage,
   cardOneImage,
   cardTwoImage,
-  cardThreeImage
+  cardThreeImage,
+  GoogleChromeLogo,
+  FirefoxLogo,
+  SafariLogo
 };
 
 export default ImageAssets;

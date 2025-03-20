@@ -23,9 +23,10 @@
   "developer": "مطور",
   "contact_us_desc": "هل لديك أسئلة أو تريد دعم مهمتنا؟ أرسل لنا بريدًا إلكترونياً نرحب باستفساراتك ودعمك!",
   "name_placeholder": "إسم المؤسسة",
-  "email_placeholder": "إيميل أو رقم الهاتف",
+  "email_placeholder": "البريد الالكتروني",
   "message_placeholder": "الرسالة",
   "send_message": "إرسال الرسالة",
+  "send_message_loading": "جاري الإرسال ...",
   "developer_section": "ساهم بمهارات البرمجة الخاصة بك! نرحب بالمساهمات من المطورين من جميع المستويات. قم بزيارة الرابط إلى صفحة إرشادات المساهمة لدينا للبدء.",
   "name_min_length": "يجب أن يتكون الاسم من 3 أحرف على الأقل",
   "name_invalid_format": "يجب أن يحتوي الاسم على حروف وأرقام فقط",
@@ -34,5 +35,11 @@
   "message_required": "الرسالة مطلوبة",
   "message_invalid_format": "يجب أن تحتوي الرسالة على حروف وأرقام فقط",
   "form_submission_success": "تم إرسال رسالتك بنجاح!",
-  "form_submission_failed": "فشل في إرسال رسالتك! يرجى المحاولة مرة أخرى."
+  "form_submission_failed": "فشل في إرسال رسالتك! يرجى المحاولة مرة أخرى.",
+  "subscription_title": "ابقَ على اطلاع!",
+  "subscription_description": "اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والتحديثات.",
+  "subscription_button": "اشترك",
+  "loading_subscription": "جاري الاشتراك ...",
+  "subscription_success": "شكراً لاشتراكك!",
+  "subscription_failed": "فشل في الاشتراك! يرجى المحاولة مرة أخرى."
 }
