@@ -3,15 +3,15 @@ import { FaEnvelope } from "react-icons/fa";
 import createContactFormSchema from "@/utils/createContactFormSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
-import i18next from "i18next";
-import { ToastContainer, toast } from "react-toastify";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import useDirection from "@/hooks/useDirection";
 
 const Subscribe = () => {
   const { t } = useTranslation();
   const contactFormSchema = createContactFormSchema(t);
   const emailSchema = contactFormSchema.pick({ email: true });
-  const [isRtl, setIsRtl] = useState(false);
+  const { isRtl } = useDirection();
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -39,12 +39,6 @@ const Subscribe = () => {
       .catch((error) => toast.error(t("subscription_failed")))
       .finally(() => setIsLoading(false));
   };
-
-  useEffect(() => {
-    const dir = document.documentElement.dir;
-    setIsRtl(dir === "rtl");
-    reset();
-  }, [i18next.language]);
 
   return (
     <div className="bg-white py-16 px-6 sm:px-12 lg:px-24 text-center">
@@ -92,7 +86,6 @@ const Subscribe = () => {
           </button>
         </div>
       </div>
-      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };

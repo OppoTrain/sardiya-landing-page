@@ -1,10 +1,10 @@
+import useDirection from "@/hooks/useDirection";
 import Hero from "./Hero";
 import Navbar from "./Navbar";
 import ImageAssets from "@/utils/ImageAssets";
-import { useTranslation } from "react-i18next";
 
 const Header = () => {
-  const { i18n } = useTranslation();
+  const { isRtl } = useDirection();
 
   return (
     <header
@@ -12,7 +12,7 @@ const Header = () => {
       id="home"
       style={{
         backgroundImage: `url(${
-          i18n.language == "ar" ? ImageAssets.heroRTL : ImageAssets.heroLTR
+          isRtl ? ImageAssets.heroRTL : ImageAssets.heroLTR
         })`,
         backgroundColor: "#d3a93c",
       }}

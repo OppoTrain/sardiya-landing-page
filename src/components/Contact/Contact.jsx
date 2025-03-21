@@ -1,19 +1,19 @@
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useRef, useState, useTransition } from "react";
 import { useTranslation } from "react-i18next";
 import { FaUser, FaEnvelope, FaGithub } from "react-icons/fa";
-import i18n from "@/utils/i18n";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
 import ImageAssets from "@/utils/ImageAssets";
 import createContactFormSchema from "@/utils/createContactFormSchema";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import ResourceLinks from "@/utils/ResourceLinks";
+import useDirection from "@/hooks/useDirection";
 
 const Contact = () => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState(1);
-  const [isRtl, setIsRtl] = useState(false);
+  const { isRtl } = useDirection();
   const [isPending, startTransition] = useTransition();
 
   const form = useRef();
@@ -51,12 +51,6 @@ const Contact = () => {
       )
       .finally(() => setIsLoading(false));
   };
-
-  useEffect(() => {
-    const dir = document.documentElement.dir;
-    setIsRtl(dir === "rtl");
-    reset();
-  }, [i18n.language]);
 
   const handleTabChange = (tabIndex) => {
     startTransition(() => {
@@ -230,7 +224,6 @@ const Contact = () => {
           )}
         </div>
       </div>
-      <ToastContainer position="top-right" autoClose={3000} />
     </section>
   );
 };

@@ -1,41 +1,36 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { BsTranslate } from "react-icons/bs";
-import i18n from "@/utils/i18n";
-import ImageAssets from '@/utils/ImageAssets'
+import ImageAssets from "@/utils/ImageAssets";
+import useDirection from "@/hooks/useDirection";
+import useCustomNavigate from "@/hooks/useCustomNavigate";
 
 const Navbar = () => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleLanguageChange = () => {
-    i18n.changeLanguage(i18n.language === "en" ? "ar" : "en");
-  };
+  const { isRtl, toggleLanguage } = useDirection();
+  const { navigateToSection } = useCustomNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  useEffect(() => {
-    document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
-  }, [i18n.language]);
-
-  const handleNavClick = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    section.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <nav className={`text-white`}>
       <div
-        className={`max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-8`}
+        className={`flex flex-wrap items-center justify-between px-6 md:px-20 py-8 2xl:px-40 `}
       >
         <button
           onClick={() => handleNavClick("home")}
-          className="font-bold text-3xl flex items-center space-x-3 rtl:space-x-reverse cursor-pointer"
+          className="font-bold text-3xl flex items-center cursor-pointer"
         >
-          {i18n.language === "en" ? (
-            "Sardiya"
+          {!isRtl ? (
+            <img
+              src={ImageAssets.logoEn}
+              className="h-10 md:h-15 md:w-30"
+              alt="Logo"
+              loading="lazy"
+            />
           ) : (
             <img
               src={ImageAssets.logo}
@@ -84,7 +79,7 @@ const Navbar = () => {
           >
             <li>
               <button
-                onClick={() => handleNavClick("home")}
+                onClick={() => navigateToSection("home")}
                 className="hover:text-yellow-400 md:text-2xl transition duration-300 cursor-pointer"
               >
                 {t("home")}
@@ -92,7 +87,7 @@ const Navbar = () => {
             </li>
             <li>
               <button
-                onClick={() => handleNavClick("video")}
+                onClick={() => navigateToSection("video")}
                 className="hover:text-yellow-400 md:text-2xl transition duration-300 cursor-pointer"
               >
                 {t("services")}
@@ -100,7 +95,7 @@ const Navbar = () => {
             </li>
             <li>
               <button
-                onClick={() => handleNavClick("contact")}
+                onClick={() => navigateToSection("contact")}
                 className="hover:text-yellow-400 md:text-2xl transition duration-300 cursor-pointer"
               >
                 {t("contact")}
@@ -109,7 +104,7 @@ const Navbar = () => {
             <li>
               <BsTranslate
                 className="cursor-pointer md:text-2xl mt-1.5 hover:text-yellow-400 transition duration-300"
-                onClick={handleLanguageChange}
+                onClick={toggleLanguage}
               />
             </li>
           </ul>

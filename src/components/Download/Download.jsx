@@ -5,7 +5,7 @@ import ImageAssets from "@/utils/ImageAssets";
 const Download = () => {
   const { t } = useTranslation();
   return (
-    <section className="bg-white py-16 px-4 flex flex-col items-center text-center">
+    <section className="bg-white py-16 px-4 flex flex-col items-center text-center" id="download">
       <h2 className="text-3xl md:text-4xl font-normal text-green-900 mb-4">
         {t("download_sardiya")}
       </h2>
@@ -25,7 +25,7 @@ const Download = () => {
             src={ImageAssets.SafariLogo}
             alt={`${t("safari")} logo`}
             loading="lazy"
-            className="h-15 w-15 md:h-25 md:w-25"
+            className="h-15 w-15 md:h-25 md:w-25 hover:scale-105 transition ease-in-out duration-300 transform"
           />
         </a>
 
@@ -39,7 +39,7 @@ const Download = () => {
             src={ImageAssets.FirefoxLogo}
             alt={`${t("firefox")} logo`}
             loading="lazy"
-            className="h-15 w-15 md:h-25 md:w-25"
+            className="h-15 w-15 md:h-25 md:w-25 hover:scale-105 transition ease-in-out duration-300 transform"
           />
         </a>
 
@@ -53,7 +53,7 @@ const Download = () => {
             src={ImageAssets.GoogleChromeLogo}
             alt={`${t("chrome")} logo`}
             loading="lazy"
-            className="h-15 w-15 md:h-25 md:w-25"
+            className="h-15 w-15 md:h-25 md:w-25 hover:scale-105 transition ease-in-out duration-300 transform"
           />
         </a>
       </div>

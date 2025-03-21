@@ -5,7 +5,7 @@ const ResourceLinks = {
     chromeExtension: 'https://addons.mozilla.org/en-US/firefox/addon/%D8%B3%D8%B1%D8%AF%D9%8A-%D8%A9/',
     safariExtension: 'https://addons.mozilla.org/en-US/firefox/addon/%D8%B3%D8%B1%D8%AF%D9%8A-%D8%A9/',
     howTouseVideo: 'https://streamable.com/e/udlmwc',
-    oppoTrainWebsite: 'https://opportrain.web.app/'
+    oppoTrainWebsite: 'https://oppotrain.com/'
 }
 
 export default ResourceLinks;

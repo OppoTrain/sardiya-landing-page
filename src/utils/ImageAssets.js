@@ -1,4 +1,5 @@
 import logo from '@/assets/sardiya_logo.png';
+import logoEn from '@/assets/sardiya_en_logo.png';
 import heroLTR from '@/assets/hero_bg_en.jpg';
 import heroRTL from '@/assets/hero_bg_ar.jpeg';
 import developerImage from '@/assets/developer_img.png';
@@ -12,6 +13,7 @@ import SafariLogo from '@/assets/safari_logo.png';
 
 const ImageAssets = {
   logo,
+  logoEn,
   heroLTR,
   heroRTL,
   developerImage,
