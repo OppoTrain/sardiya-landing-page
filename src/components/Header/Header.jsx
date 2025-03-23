@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <header
-      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+      className="relative min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
       id="home"
       style={{
         backgroundImage: `url(${
@@ -17,8 +17,11 @@ const Header = () => {
         backgroundColor: "#d3a93c",
       }}
     >
-      <Navbar />
-      <Hero />
+      <div className="absolute inset-0 bg-black opacity-40"></div>
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+      </div>
     </header>
   );
 };

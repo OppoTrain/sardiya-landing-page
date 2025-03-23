@@ -10,6 +10,7 @@ import cardThreeImage from '@/assets/card3_img.jpeg';
 import GoogleChromeLogo from '@/assets/google_chrome_logo.png';
 import FirefoxLogo from '@/assets/firefox_logo.png';
 import SafariLogo from '@/assets/safari_logo.png';
+import EdgeLogo from '@/assets/edge_browser.png';
 
 const ImageAssets = {
   logo,
@@ -23,7 +24,8 @@ const ImageAssets = {
   cardThreeImage,
   GoogleChromeLogo,
   FirefoxLogo,
-  SafariLogo
+  SafariLogo,
+  EdgeLogo
 };
 
 export default ImageAssets;
